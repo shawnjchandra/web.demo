@@ -19,8 +19,7 @@ RUN addgroup --system spring && adduser --system --ingroup spring spring
 USER spring:spring
 
 # Copy the application JAR from the build stage
-ARG JAR_FILE= /app/build/libs/demo-1.jar
-COPY --from=build ${JAR_FILE} app.jar
+COPY --from=build /app/build/libs/*.jar app.jar
 
 # Expose the application port
 EXPOSE 9000 
